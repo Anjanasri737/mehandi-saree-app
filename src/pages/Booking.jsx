@@ -7,9 +7,9 @@ function Booking({ service = 'mehandi' }) {
   const isSaree = service === 'saree';
 
   const emptyForm = {
-    Name: '',
-    Whatsapp_number: '',
-    Address: '',
+    customer_name: '',
+    whatsapp_number: '',
+    address: '',
     mehandi_type: '',
     saree_count: '',
     event_date: '',
@@ -46,9 +46,9 @@ function Booking({ service = 'mehandi' }) {
     const { error: insertError } = await supabase.from('bookings').insert({
       user_id: userData.user.id,
       service: service,
-      Name: form.Name.trim(),
+      customer_name: form.customer_name.trim(),
       whatsapp_number: form.whatsapp_number.trim(),
-      Address: form.Address.trim(),
+      address: form.address.trim(),
       mehandi_type: isSaree ? null : form.mehandi_type,
       saree_count: isSaree ? Number(form.saree_count) : null,
       event_date: form.event_date,
@@ -72,7 +72,7 @@ function Booking({ service = 'mehandi' }) {
         <h2>{isSaree ? 'Book Saree Pre-Pleating' : 'Book Mehandi'}</h2>
 
         <label>
-           Name
+          Customer Name
           <input
             type="text"
             name="customer_name"
@@ -99,7 +99,7 @@ function Booking({ service = 'mehandi' }) {
           Address
           <textarea
             name="address"
-            value={form.Address}
+            value={form.address}
             onChange={handleChange}
             rows={3}
             required
