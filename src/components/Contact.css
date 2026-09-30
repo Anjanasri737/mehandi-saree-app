@@ -1,0 +1,31 @@
+.contact {
+  padding: 3rem 1.25rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 1.8rem;
+  color: #3E2723;
+  margin-bottom: 0.75rem;
+}
+
+.contact-address {
+  color: #5D4037;
+  margin-bottom: 2rem;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.instagram-link {
+  display: inline-block;
+  color: #B08D57;
+  font-weight: 600;
+  font-size: 0.95rem;
+}

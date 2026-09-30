@@ -1,0 +1,15 @@
+.footer {
+  background-color: #3E2723;
+  color: #F5EBDD;
+  text-align: center;
+  padding: 2rem 1.25rem;
+}
+
+.footer p {
+  margin: 0.25rem 0;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}

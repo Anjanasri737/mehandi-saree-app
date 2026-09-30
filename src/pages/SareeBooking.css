@@ -1,0 +1,29 @@
+.saree-summary {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0.5rem 0;
+}
+
+.saree-summary dt {
+  font-weight: 700;
+}
+
+.saree-summary dd {
+  margin: 0;
+  word-break: break-word;
+}
+
+.saree-confirmation {
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  .saree-summary {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+  .saree-summary dd {
+    margin-bottom: 0.6rem;
+  }
+}

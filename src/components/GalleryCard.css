@@ -1,0 +1,38 @@
+.gallery-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #E8D9C5;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(62, 39, 35, 0.12);
+}
+
+.gallery-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.gallery-card-info {
+  padding: 0.85rem;
+}
+
+.gallery-card-category {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #7A9B57;
+  font-weight: 600;
+}
+
+.gallery-card-info h4 {
+  font-size: 0.95rem;
+  color: #3E2723;
+  margin-top: 0.3rem;
+  font-weight: 600;
+}
