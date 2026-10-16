@@ -13,7 +13,9 @@ function GalleryPreview({ id, title, items, viewAllHref, viewAllLabel }) {
           ))}
         </div>
 
-        <a href={viewAllHref} className="btn btn-outline view-all-btn">{viewAllLabel}</a>
+        {viewAllLabel && (
+          <a href={viewAllHref} className="btn btn-outline view-all-btn">{viewAllLabel}</a>
+        )}
       </div>
     </section>
   )

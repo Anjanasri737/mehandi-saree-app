@@ -17,7 +17,7 @@ function App() {
   const [bookingService, setBookingService] = useState(null)
   const { user, signOut } = useAuth()
 
-      useEffect(() => {
+  useEffect(() => {
     const checkHash = () => {
       const hash = window.location.hash
       setShowAuth(hash === '#login')
@@ -26,27 +26,28 @@ function App() {
       } else if (hash === '#booking-saree') {
         setBookingService('saree')
       } else {
-          setBookingService(null)
+        setBookingService(null)
       }
     }
-        checkHash()
+    checkHash()
     window.addEventListener('hashchange', checkHash)
     return () => window.removeEventListener('hashchange', checkHash)
   }, [])
 
   if (bookingService) {
-  return (
-    <div>
-      <Header />
-      {user
-        ? bookingService === 'saree'
-          ? <SareeBooking />
-          : <Booking key={bookingService} service={bookingService} />
-        : <Auth />}
-      <Footer />
-    </div>
-  )
-}
+    return (
+      <div>
+        <Header />
+        {user
+          ? bookingService === 'saree'
+            ? <SareeBooking />
+            : <Booking key={bookingService} service={bookingService} />
+          : <Auth />}
+        <Footer />
+      </div>
+    )
+  }
+
   if (showAuth && !user) {
     return (
       <div>
@@ -81,8 +82,6 @@ function App() {
         id="saree-gallery"
         title="Saree Pre-Pleating Gallery"
         items={sareeDesigns}
-        viewAllHref="#saree-gallery"
-        viewAllLabel="View All Saree Designs →"
       />
       <Reviews />
       <Contact />
