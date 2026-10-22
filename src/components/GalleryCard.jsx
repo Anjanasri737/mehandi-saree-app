@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import {
   validatePhoto,
   saveGalleryPhoto,
@@ -17,10 +18,12 @@ function GalleryCard({
   onPhotoChange,
 }) {
   const fileInputRef = useRef(null)
+  const closeBtnRef = useRef(null)
   const [selectedFile, setSelectedFile] = useState(null)
   const [previewUrl, setPreviewUrl] = useState('')
   const [busy, setBusy] = useState(false)
   const [message, setMessage] = useState(null)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
 
   // free the temporary preview when it is no longer needed
   useEffect(() => {
@@ -28,6 +31,22 @@ function GalleryCard({
       if (previewUrl) URL.revokeObjectURL(previewUrl)
     }
   }, [previewUrl])
+
+  // full-size viewer: Escape closes it, the page behind it does not scroll
+  useEffect(() => {
+    if (!lightboxOpen) return
+    const onKey = (e) => {
+      if (e.key === 'Escape') setLightboxOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    if (closeBtnRef.current) closeBtnRef.current.focus()
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = previousOverflow
+    }
+  }, [lightboxOpen])
 
   const clearSelection = () => {
     setSelectedFile(null)
@@ -91,7 +110,15 @@ function GalleryCard({
 
   return (
     <div className="gallery-card">
-      <img src={shownImage} alt={title} />
+      <button
+        type="button"
+        className="gallery-card-image-btn"
+        onClick={() => setLightboxOpen(true)}
+        aria-label={`View ${title} photo full size`}
+      >
+        <img src={shownImage} alt={title} />
+      </button>
+
       <div className="gallery-card-info">
         <span className="gallery-card-category">{category}</span>
         <h4>{title}</h4>
@@ -152,6 +179,35 @@ function GalleryCard({
       )}
 
       {message && <p className={`gallery-card-msg ${message.type}`}>{message.text}</p>}
+
+      {lightboxOpen &&
+        createPortal(
+          <div
+            className="lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label={title}
+            onClick={() => setLightboxOpen(false)}
+          >
+            <button
+              ref={closeBtnRef}
+              type="button"
+              className="lightbox-close"
+              onClick={() => setLightboxOpen(false)}
+              aria-label="Close full-size photo"
+            >
+              ✕
+            </button>
+            <img
+              className="lightbox-image"
+              src={shownImage}
+              alt={title}
+              onClick={(e) => e.stopPropagation()}
+            />
+            <p className="lightbox-caption">{title}</p>
+          </div>,
+          document.body
+        )}
     </div>
   )
 }
