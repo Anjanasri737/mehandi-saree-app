@@ -36,3 +36,50 @@
   margin-top: 0.3rem;
   font-weight: 600;
 }
+
+.gallery-card-admin {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 0.85rem 0.85rem;
+}
+
+.gallery-card-btn {
+  min-height: 40px;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #7A9B57;
+  border-radius: 999px;
+  background: #fff;
+  color: #3E2723;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gallery-card-btn.primary {
+  background: #7A9B57;
+  color: #fff;
+}
+
+.gallery-card-btn.danger {
+  border-color: #b3261e;
+  color: #b3261e;
+}
+
+.gallery-card-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.gallery-card-msg {
+  padding: 0 0.85rem 0.85rem;
+  font-size: 0.85rem;
+}
+
+.gallery-card-msg.error {
+  color: #b3261e;
+}
+
+.gallery-card-msg.success {
+  color: #2e7d32;
+}
