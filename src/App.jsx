@@ -29,6 +29,18 @@ function App() {
         setBookingService(null)
       }
     }
+
+    // When the app first opens, always start on the Home page,
+    // even if the phone remembered an old booking or login address.
+    const startHash = window.location.hash
+    if (startHash.startsWith('#booking') || startHash === '#login') {
+      window.history.replaceState(
+        null,
+        '',
+        window.location.pathname + window.location.search + '#home'
+      )
+    }
+
     checkHash()
     window.addEventListener('hashchange', checkHash)
     return () => window.removeEventListener('hashchange', checkHash)
