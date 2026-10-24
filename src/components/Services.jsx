@@ -11,7 +11,7 @@ function Services() {
   ]
 
     const sareeTypes = [
-    'Wedding Saree Pre-Pleating',
+    'Wedding Saree Fluffy Pre-Pleating with Hanger Folding',
     'Hanger Pleating',
     'Party Wear Saree Preparation',
     'Cotton Saree Pleating with Box Folding',

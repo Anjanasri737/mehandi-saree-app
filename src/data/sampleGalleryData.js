@@ -15,9 +15,9 @@ export const mehandiDesigns = [
 export const sareeDesigns = [
   {
     id: 1,
-    title: 'Wedding Saree Pre-Pleating',
+    title: 'Wedding Saree ',
     category: 'Wedding Saree',
-    description: 'Full Fluffy Pleats with Box Folding & Hanger Folding. For wedding sarees, including Kanchipuram silk sarees.',
+    description: 'Fluffy Pre-Pleating with Hange Folding',
     image: 'https://placehold.co/400x400/3E2723/fff?text=Wedding+Saree',
   },
   { id: 2, title: 'Hanger Pleating Setup', category: 'Hanger Pleating', image: 'https://placehold.co/400x400/5D4037/fff?text=Hanger+Pleats' },
