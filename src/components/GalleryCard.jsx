@@ -11,6 +11,7 @@ function GalleryCard({
   image,
   title,
   category,
+  description,
   gallery,
   cardId,
   photo,
@@ -122,6 +123,7 @@ function GalleryCard({
       <div className="gallery-card-info">
         <span className="gallery-card-category">{category}</span>
         <h4>{title}</h4>
+        {description && <p className="gallery-card-desc">{description}</p>}
       </div>
 
       {isAdmin && (

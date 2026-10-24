@@ -13,11 +13,28 @@ export const mehandiDesigns = [
 ]
 
 export const sareeDesigns = [
-  { id: 1, title: 'Kanchipuram Silk Saree Pre-Pleating', category: 'Wedding Saree', image: 'https://placehold.co/400x400/3E2723/fff?text=Silk+Saree' },
+  {
+    id: 1,
+    title: 'Wedding Saree Pre-Pleating',
+    category: 'Wedding Saree',
+    description: 'Full Fluffy Pleats with Box Folding & Hanger Folding. For wedding sarees, including Kanchipuram silk sarees.',
+    image: 'https://placehold.co/400x400/3E2723/fff?text=Wedding+Saree',
+  },
   { id: 2, title: 'Hanger Pleating Setup', category: 'Hanger Pleating', image: 'https://placehold.co/400x400/5D4037/fff?text=Hanger+Pleats' },
   { id: 3, title: 'Party Wear Box Pleats', category: 'Party Wear Saree', image: 'https://placehold.co/400x400/3E2723/fff?text=Box+Pleats' },
   { id: 4, title: 'Cotton Saree Pleating', category: 'Cotton Saree', image: 'https://placehold.co/400x400/5D4037/fff?text=Cotton+Saree' },
-  { id: 5, title: 'Traditional Pleating Style', category: 'Traditional Pleating', image: 'https://placehold.co/400x400/3E2723/fff?text=Traditional' },
-  { id: 6, title: 'Designer Saree Draping', category: 'Designer Saree', image: 'https://placehold.co/400x400/5D4037/fff?text=Designer+Saree' },
+  {
+    id: 5,
+    title: 'Semi Fluffy Pleats',
+    category: 'Box Folding',
+    description: 'Semi fluffy saree pleats with box folding.',
+    image: 'https://placehold.co/400x400/3E2723/fff?text=Semi+Fluffy',
+  },
+  {
+    id: 6,
+    title: 'Full Fluffy Pleats',
+    category: 'Box Folding',
+    description: 'Full fluffy saree pleats with box folding.',
+    image: 'https://placehold.co/400x400/5D4037/fff?text=Full+Fluffy',
+  },
 ]
-

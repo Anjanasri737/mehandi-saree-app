@@ -10,15 +10,14 @@ function Services() {
     'Custom Mehandi',
   ]
 
-  const sareeTypes = [
-    'Saree Pre-Pleating',
+    const sareeTypes = [
+    'Wedding Saree Pre-Pleating',
     'Hanger Pleating',
-    'Box Pleats',
-    'Traditional Pleating',
-    'Wedding Saree Preparation',
     'Party Wear Saree Preparation',
+    'Cotton Saree Pleating with Box Folding',
+    'Semi Fluffy Pleats',
+    'Full Fluffy Pleats',
   ]
-
   return (
     <section id="services" className="services">
       <div className="services-inner">

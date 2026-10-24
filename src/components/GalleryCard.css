@@ -135,3 +135,10 @@
   font-size: 0.95rem;
   text-align: center;
 }
+
+.gallery-card-desc {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #6D4C41;
+}
