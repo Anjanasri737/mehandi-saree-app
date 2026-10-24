@@ -8,7 +8,7 @@ export const mehandiDesigns = [
   { id: 2, title: 'Arabic Style Mehandi', category: 'Arabic', image: 'https://placehold.co/400x400/B08D57/fff?text=Arabic+Mehandi' },
   { id: 3, title: 'Simple Everyday Mehandi', category: 'Simple', image: 'https://placehold.co/400x400/7A9B57/fff?text=Simple+Mehandi' },
   { id: 4, title: 'Traditional Festival Mehandi', category: 'Festival', image: 'https://placehold.co/400x400/B08D57/fff?text=Festival+Mehandi' },
-  { id: 5, title: 'Traditional Mehandi Design', category: 'Traditional', image: 'https://placehold.co/400x400/7A9B57/fff?text=Traditional' },
+  { id: 5, title: 'Kids Mehandi Design', category: 'Traditional', image: 'https://placehold.co/400x400/7A9B57/fff?text=Traditional' },
   { id: 6, title: 'Custom Mehandi Art', category: 'Custom', image: 'https://placehold.co/400x400/B08D57/fff?text=Custom+Mehandi' },
 ]
 
