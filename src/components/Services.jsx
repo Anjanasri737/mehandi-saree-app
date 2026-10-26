@@ -7,10 +7,10 @@ function Services() {
     'Simple Mehandi',
     'Traditional Mehandi',
     'Festival Mehandi',
-    'Custom Mehandi',
+    'Baby shower mehndi design',
   ]
 
-    const sareeTypes = [
+  const sareeTypes = [
     'Wedding Saree Fluffy Pre-Pleating with Hanger Folding',
     'Hanger Pleating',
     'Party Wear Saree Preparation',
@@ -18,6 +18,7 @@ function Services() {
     'Semi Fluffy Pleats',
     'Full Fluffy Pleats',
   ]
+
   return (
     <section id="services" className="services">
       <div className="services-inner">
@@ -31,7 +32,7 @@ function Services() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <a href="#booking" className="btn btn-primary">Book Mehandi</a>
+            <a href="#booking-mehandi" className="btn btn-primary">Book Mehandi</a>
           </div>
 
           <div className="service-card">
@@ -41,7 +42,7 @@ function Services() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <a href="#booking" className="btn btn-primary">Book Saree Pre-Pleating</a>
+            <a href="#booking-saree" className="btn btn-primary">Book Saree Pre-Pleating</a>
           </div>
         </div>
       </div>

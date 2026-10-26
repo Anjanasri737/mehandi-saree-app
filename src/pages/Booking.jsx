@@ -69,6 +69,7 @@ function Booking({ service = 'mehandi' }) {
   return (
     <div className="booking-page">
       <form className="booking-card" onSubmit={handleSubmit}>
+        <a href="#home" className="booking-back">← Back to Home</a>
         <h2>{isSaree ? 'Book Saree Pre-Pleating' : 'Book Mehandi'}</h2>
 
         <label>

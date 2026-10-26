@@ -9,5 +9,5 @@ export const businessInfo = {
   whatsapp: "919342495806",   // placeholder — country code + number, no + or spaces
   email: "info@example.com",  // placeholder
   address: "Your Business Address, City, State",
-  instagram: "https://instagram.com/yourhandle",
+  instagram: "https://www.instagram.com/anjana_sri2026",
 };

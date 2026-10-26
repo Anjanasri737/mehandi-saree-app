@@ -54,3 +54,17 @@
 
 .booking-error { color: #b3261e; }
 .booking-success { color: #2e7d32; font-weight: 600; }
+
+.booking-back {
+  display: inline-block;
+  align-self: flex-start;
+  min-height: 40px;
+  padding: 0.5rem 0;
+  color: #7A9B57;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.booking-back:hover {
+  text-decoration: underline;
+}

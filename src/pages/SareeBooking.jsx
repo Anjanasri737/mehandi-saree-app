@@ -5,12 +5,12 @@ import './Booking.css'
 import './SareeBooking.css'
 
 const sareePleatTypes = [
-  'Saree Pre-Pleating',
+  'Wedding Saree Fluffy Pre-Pleating with Hanger Folding',
   'Hanger Pleating',
-  'Box Pleats',
-  'Traditional Pleating',
-  'Wedding Saree Preparation',
   'Party Wear Saree Preparation',
+  'Cotton Saree Pleating with Box Folding',
+  'Semi Fluffy Pleats',
+  'Full Fluffy Pleats',
 ]
 
 // today's date in the user's own timezone, as YYYY-MM-DD
@@ -103,6 +103,7 @@ function SareeBooking() {
     return (
       <div className="booking-page">
         <div className="booking-card saree-confirmation">
+          <a href="#home" className="booking-back">← Back to Home</a>
           <h2>Booking Confirmed ✓</h2>
           <p className="booking-success">
             Thank you! Your Saree Pre-Pleating booking has been received.
@@ -131,6 +132,7 @@ function SareeBooking() {
   return (
     <div className="booking-page">
       <form className="booking-card" onSubmit={handleSubmit}>
+        <a href="#home" className="booking-back">← Back to Home</a>
         <h2>Book Saree Pre-Pleating</h2>
 
         <label>

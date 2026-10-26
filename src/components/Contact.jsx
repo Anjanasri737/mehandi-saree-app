@@ -1,5 +1,6 @@
 import { businessInfo } from '../config/businessInfo'
 import './Contact.css'
+import InstagramIcon from './InstagramIcon'
 
 function Contact() {
   const whatsappLink = `https://wa.me/${businessInfo.whatsapp}?text=Hi! I have a question about your services.`
@@ -19,7 +20,7 @@ function Contact() {
         </div>
 
         <a href={businessInfo.instagram} target="_blank" rel="noopener noreferrer" className="instagram-link">
-          📷 Follow Me on Instagram
+          <InstagramIcon /> Follow Me on Instagram
         </a>
       </div>
     </section>
