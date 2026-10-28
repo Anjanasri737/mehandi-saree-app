@@ -1,0 +1,37 @@
+.mg-page { background: #fffaf3; min-height: 70vh; padding: 1.5rem 1rem 3rem; }
+.mg-inner { max-width: 1100px; margin: 0 auto; }
+.mg-back { color: #7A9B57; text-decoration: none; font-weight: 600; }
+.mg-page h1 { margin: 0.75rem 0 1rem; }
+.mg-toggle { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem; }
+.mg-notice { padding: 0.6rem 0.9rem; border-radius: 8px; margin: 0.75rem 0; }
+.mg-success { background: #e6f2dc; color: #2f5a14; }
+.mg-error { background: #fde7e7; color: #8a1f1f; }
+.mg-admin { background: #F5EBDD; border-radius: 12px; padding: 1rem; display: grid; gap: 0.75rem; margin-bottom: 1.5rem; }
+.mg-admin label { display: grid; gap: 0.25rem; font-weight: 600; }
+.mg-page input, .mg-page select, .mg-page textarea { padding: 0.5rem; border: 1px solid #d9c9b0; border-radius: 8px; font: inherit; }
+.mg-preview { max-width: 160px; border-radius: 8px; }
+.mg-page button, .mg-btn { background: #7A9B57; color: #fff; border: 0; border-radius: 8px; padding: 0.5rem 0.9rem; cursor: pointer; text-decoration: none; font: inherit; font-size: 0.9rem; display: inline-block; }
+.mg-page button:disabled { opacity: 0.6; cursor: wait; }
+.mg-page .mg-ghost { background: transparent; color: #5c7a3c; border: 1px solid #7A9B57; }
+.mg-page .mg-danger { background: #b3382c; }
+.mg-tabs { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; }
+.mg-tab { white-space: nowrap; background: #fff !important; color: #444 !important; border: 1px solid #d9c9b0 !important; }
+.mg-tab span { margin-left: 0.4rem; background: #F5EBDD; border-radius: 10px; padding: 0 0.45rem; font-size: 0.8rem; }
+.mg-tab.active { background: #7A9B57 !important; color: #fff !important; border-color: #7A9B57 !important; }
+.mg-cat-title { margin: 1.25rem 0 0.75rem; }
+.mg-empty { text-align: center; padding: 2.5rem 1rem; color: #7b6c58; font-size: 1.1rem; }
+.mg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.mg-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
+.mg-card > img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; cursor: zoom-in; display: block; }
+.mg-card-body { padding: 0.75rem; display: grid; gap: 0.5rem; }
+.mg-card-body h3 { margin: 0; font-size: 1rem; }
+.mg-card-body p { margin: 0; font-size: 0.85rem; color: #6b5d4a; }
+.mg-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.mg-badge { background: #fde7e7; color: #8a1f1f; font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 8px; width: fit-content; }
+.mg-check { display: flex; gap: 0.4rem; align-items: center; }
+.mg-file { cursor: pointer; border-radius: 8px; padding: 0.5rem 0.9rem; font-size: 0.9rem; }
+.mg-lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; padding: 1rem; }
+.mg-lightbox img { max-width: 100%; max-height: 80vh; border-radius: 8px; }
+.mg-lightbox p { color: #fff; margin-top: 0.75rem; }
+.mg-close { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.2) !important; }
+@media (max-width: 480px) { .mg-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; } }

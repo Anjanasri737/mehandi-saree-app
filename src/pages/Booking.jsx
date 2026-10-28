@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '../services/supabase';
 import { mehandiTypes } from '../data/mehandiTypes';
 import './Booking.css';
 
-function Booking({ service = 'mehandi' }) {
+function Booking({ service = 'mehandi', designId = null }) {
   const isSaree = service === 'saree';
 
   const emptyForm = {
@@ -19,6 +19,20 @@ function Booking({ service = 'mehandi' }) {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [designTitle, setDesignTitle] = useState('');
+
+  // If the customer came from "Book this design", find that design's name.
+  // Only published designs are found, so a hidden design is never attached.
+  useEffect(() => {
+    if (!designId || isSaree) return;
+    supabase
+      .from('mehandi_designs')
+      .select('title')
+      .eq('id', designId)
+      .eq('is_published', true)
+      .maybeSingle()
+      .then(({ data }) => setDesignTitle(data?.title || ''));
+  }, [designId, isSaree]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -52,6 +66,7 @@ function Booking({ service = 'mehandi' }) {
       mehandi_type: isSaree ? null : form.mehandi_type,
       saree_count: isSaree ? Number(form.saree_count) : null,
       event_date: form.event_date,
+      ...(designTitle && !isSaree ? { design_id: designId } : {}),
     });
 
     setLoading(false);
@@ -71,6 +86,10 @@ function Booking({ service = 'mehandi' }) {
       <form className="booking-card" onSubmit={handleSubmit}>
         <a href="#home" className="booking-back">← Back to Home</a>
         <h2>{isSaree ? 'Book Saree Pre-Pleating' : 'Book Mehandi'}</h2>
+
+        {designTitle && !isSaree && (
+          <p>Selected design: <strong>{designTitle}</strong></p>
+        )}
 
         <label>
           Customer Name

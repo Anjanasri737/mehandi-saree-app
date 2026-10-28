@@ -11,22 +11,29 @@ import { useAuth } from './context/AuthContext'
 import { mehandiDesigns, sareeDesigns } from './data/sampleGalleryData'
 import Booking from './pages/Booking'
 import SareeBooking from './pages/SareeBooking'
+import MehandiGallery from './pages/MehandiGallery'
 
 function App() {
   const [showAuth, setShowAuth] = useState(false)
+  const [showGallery, setShowGallery] = useState(false)
   const [bookingService, setBookingService] = useState(null)
+  const [bookingDesignId, setBookingDesignId] = useState(null)
   const { user, signOut } = useAuth()
 
   useEffect(() => {
     const checkHash = () => {
       const hash = window.location.hash
       setShowAuth(hash === '#login')
-      if (hash === '#booking' || hash === '#booking-mehandi') {
+      setShowGallery(hash === '#mehandi-designs')
+      if (hash === '#booking' || hash.startsWith('#booking-mehandi')) {
         setBookingService('mehandi')
+        setBookingDesignId(hash.split('/')[1] || null)
       } else if (hash === '#booking-saree') {
         setBookingService('saree')
+        setBookingDesignId(null)
       } else {
         setBookingService(null)
+        setBookingDesignId(null)
       }
     }
 
@@ -53,7 +60,11 @@ function App() {
         {user
           ? bookingService === 'saree'
             ? <SareeBooking />
-            : <Booking key={bookingService} service={bookingService} />
+            : <Booking
+                key={`${bookingService}-${bookingDesignId}`}
+                service={bookingService}
+                designId={bookingDesignId}
+              />
           : <Auth />}
         <Footer />
       </div>
@@ -65,6 +76,16 @@ function App() {
       <div>
         <Header />
         <Auth />
+        <Footer />
+      </div>
+    )
+  }
+
+  if (showGallery) {
+    return (
+      <div>
+        <Header />
+        <MehandiGallery />
         <Footer />
       </div>
     )
@@ -87,7 +108,7 @@ function App() {
         id="mehandi-gallery"
         title="Mehandi Gallery"
         items={mehandiDesigns}
-        viewAllHref="#mehandi-gallery"
+        viewAllHref="#mehandi-designs"
         viewAllLabel="View All Mehandi Designs →"
       />
       <GalleryPreview
