@@ -196,12 +196,12 @@ function Auth() {
                     <GoogleLogo /> Continue with Google
                     {!GOOGLE_ON && <small>Coming soon</small>}
                   </button>
-                  <button type="button" className={`lg-social ${APPLE_ON ? '' : 'lg-off'}`}
-                    onClick={() => social('apple', APPLE_ON)} aria-disabled={!APPLE_ON}
-                    title={APPLE_ON ? '' : 'Apple sign-in is not set up yet'}>
+                  {APPLE_ON && (
+                  <button type="button" className="lg-social"
+                    onClick={() => social('apple', APPLE_ON)}>
                     <AppleLogo /> Continue with Apple
-                    {!APPLE_ON && <small>Coming soon</small>}
                   </button>
+                )}
 
                   <div className="lg-or"><span>OR</span></div>
 

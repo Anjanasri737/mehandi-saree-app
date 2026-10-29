@@ -12,6 +12,8 @@ import { mehandiDesigns, sareeDesigns } from './data/sampleGalleryData'
 import Booking from './pages/Booking'
 import SareeBooking from './pages/SareeBooking'
 import MehandiGallery from './pages/MehandiGallery'
+import { useReveal } from './hooks/useReveal'
+import './Theme.css'
 
 function App() {
   const [showAuth, setShowAuth] = useState(false)
@@ -20,6 +22,7 @@ function App() {
   const [bookingDesignId, setBookingDesignId] = useState(null)
   const { user, signOut, recovering } = useAuth()
 
+  // 1. Read the address (#login, #booking, #mehandi-designs ...)
   useEffect(() => {
     const checkHash = () => {
       const hash = window.location.hash
@@ -53,16 +56,29 @@ function App() {
     return () => window.removeEventListener('hashchange', checkHash)
   }, [])
 
-  if (recovering) {
-  return (
-    <div>
-      <Header />
-      <Auth />
-      <Footer />
-    </div>
-  )
-}
+  // 2. Smooth-scroll to the section named in the address
+  useEffect(() => {
+    const id = window.location.hash.slice(1)
+    if (!id) return
+    const timer = setTimeout(() => {
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      else if (id === 'home') window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 60)
+    return () => clearTimeout(timer)
+  }, [showAuth, showGallery, bookingService])
 
+  // Everything below here is NOT a hook, so the returns are fine.
+  if (recovering) {
+    return (
+      <div>
+        <Header />
+        <Auth />
+        <Footer />
+      </div>
+    )
+  }
+  useReveal(`${showAuth}-${showGallery}-${bookingService}`)
   if (bookingService) {
     return (
       <div>

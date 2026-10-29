@@ -1,0 +1,72 @@
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 90px; }
+
+.header { position: sticky; top: 0; z-index: 50; }
+
+/* Animated underline + colour change */
+.nav-links a:not(.login-link) {
+  position: relative;
+  transition: color 0.25s ease;
+}
+.nav-links a:not(.login-link)::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 2px;
+  background: #B8A2E3;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-links a:not(.login-link):hover { color: #4B326F; }
+.nav-links a:not(.login-link):hover::after,
+.nav-links a.nav-active::after { transform: scaleX(1); }
+.nav-links a.nav-active { color: #4B326F; font-weight: 600; }
+.nav-links a:not(.login-link):active { transform: scale(0.97); }
+
+.login-link { transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease; }
+.login-link:hover { transform: translateY(-1px); }
+
+/* Gentle hover on buttons and cards */
+.btn { transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(75, 50, 111, 0.15); }
+[class*="service"][class*="card"] { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+[class*="service"][class*="card"]:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(75, 50, 111, 0.14); }
+
+/* Soft fade-in for sections */
+/* @keyframes sectionFade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+section[id] { animation: sectionFade 0.6s ease both; } */
+
+/* Mobile menu: smooth open and close */
+@media (max-width: 768px) {
+  .header-inner { position: relative; }
+  .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #FFFFFF;
+    box-shadow: 0 12px 24px rgba(75, 50, 111, 0.12);
+    max-height: 0;
+    padding: 0 1rem;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease, visibility 0s linear 0.35s;
+  }
+  .nav-links.nav-open {
+    max-height: 85vh;
+    padding: 0.5rem 1rem 1rem;
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease, visibility 0s;
+  }
+  .nav-links a { padding: 0.85rem 0.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  section[id] { animation: none; }
+  .nav-links, .nav-links a, .nav-links a::after, .btn, [class*="service"][class*="card"] { transition: none !important; }
+}

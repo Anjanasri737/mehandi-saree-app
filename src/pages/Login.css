@@ -5,81 +5,90 @@
   padding: 3rem 1rem 4rem;
   display: flex;
   justify-content: center;
-  background: radial-gradient(circle at 50% 0%, #4a3d73 0%, #2d2547 55%, #231d3a 100%);
-  color: #f1ecff;
+  background: linear-gradient(160deg, #F3EEFF 0%, #E5D9F7 55%, #D9C9F2 100%);
+  color: #4B326F;
   font-family: 'Inter', system-ui, sans-serif;
 }
 .lg-wrap { width: 100%; max-width: 440px; text-align: center; }
 .lg-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(2.6rem, 9vw, 4rem);
+  font-weight: 600;
+  font-size: clamp(2.5rem, 9vw, 3.75rem);
   line-height: 1.1;
   margin: 1rem 0 0.5rem;
-  color: #fff;
+  color: #4B326F;
 }
-.lg-sub { margin: 0 0 2rem; color: #c9bfe8; font-size: 1.02rem; }
+.lg-sub { margin: 0 0 2rem; color: #6b5a8a; font-size: 1.02rem; }
+
 .lg-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #FFFFFF;
+  border: 1px solid #E5D9F7;
   border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(75, 50, 111, 0.12);
   padding: 1.5rem;
   display: grid;
   gap: 0.75rem;
   text-align: left;
 }
+
 .lg-social {
   display: flex; align-items: center; justify-content: center; gap: 0.7rem;
   width: 100%; padding: 0.85rem 1rem;
-  background: transparent; color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 14px; font: inherit; font-weight: 500; cursor: pointer;
-  transition: background 0.2s;
+  background: #FFFFFF; color: #4B326F;
+  border: 1px solid #E5D9F7; border-radius: 14px;
+  font: inherit; font-weight: 500; cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-.lg-social:hover { background: rgba(255, 255, 255, 0.08); }
-.lg-social small { font-size: 0.7rem; opacity: 0.8; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 0 0.4rem; }
-.lg-off { opacity: 0.5; cursor: not-allowed; }
-.lg-off:hover { background: transparent; }
-.lg-or { display: flex; align-items: center; gap: 0.75rem; color: #a99cd0; font-size: 0.8rem; letter-spacing: 0.1em; }
-.lg-or::before, .lg-or::after { content: ''; flex: 1; height: 1px; background: rgba(255, 255, 255, 0.16); }
+.lg-social:hover { background: #F3EEFF; border-color: #B8A2E3; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(75, 50, 111, 0.12); }
+.lg-social small { font-size: 0.7rem; color: #6b5a8a; border: 1px solid #E5D9F7; border-radius: 8px; padding: 0 0.4rem; }
+.lg-off { opacity: 0.55; cursor: not-allowed; }
+.lg-off:hover { background: #FFFFFF; border-color: #E5D9F7; transform: none; box-shadow: none; }
+
+.lg-or { display: flex; align-items: center; gap: 0.75rem; color: #8a7aa8; font-size: 0.8rem; letter-spacing: 0.1em; }
+.lg-or::before, .lg-or::after { content: ''; flex: 1; height: 1px; background: #E5D9F7; }
+
 .lg-form { display: grid; gap: 0.75rem; }
 .lg-input {
   width: 100%; box-sizing: border-box; padding: 0.85rem 1rem;
-  background: rgba(0, 0, 0, 0.25); color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 14px; font: inherit;
+  background: #FFFFFF; color: #4B326F;
+  border: 1px solid #E5D9F7; border-radius: 14px; font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.lg-input::placeholder { color: #a99cd0; }
-.lg-input:focus { outline: none; border-color: #c8b6ff; box-shadow: 0 0 0 3px rgba(200, 182, 255, 0.25); }
+.lg-input::placeholder { color: #9a8bb8; }
+.lg-input:focus { outline: none; border-color: #B8A2E3; box-shadow: 0 0 0 3px rgba(184, 162, 227, 0.35); }
+
 .lg-primary {
   padding: 0.9rem 1rem; border: 0; border-radius: 14px; cursor: pointer;
-  background: #e9defe; color: #2d2547; font: inherit; font-weight: 600;
+  background: #4B326F; color: #FFFFFF; font: inherit; font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-.lg-primary:hover { background: #fff; }
-.lg-primary:disabled { opacity: 0.6; cursor: wait; }
-.lg-who { margin: 0; color: #d8cff2; font-size: 0.95rem; word-break: break-all; }
+.lg-primary:hover { background: #5d3f87; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(75, 50, 111, 0.25); }
+.lg-primary:disabled { opacity: 0.6; cursor: wait; transform: none; box-shadow: none; }
+
+.lg-who { margin: 0; color: #4B326F; font-size: 0.95rem; word-break: break-all; }
 .lg-links { display: grid; gap: 0.4rem; justify-items: center; margin-top: 0.25rem; }
 .lg-links button, .lg-home {
-  background: none; border: 0; color: #cdbfff; font: inherit; font-size: 0.9rem;
-  cursor: pointer; text-decoration: underline;
+  background: none; border: 0; color: #4B326F; font: inherit; font-size: 0.9rem;
+  cursor: pointer; text-decoration: underline; transition: color 0.2s ease;
 }
+.lg-links button:hover, .lg-home:hover { color: #8a63c9; }
+
 .lg-msg { margin: 0; padding: 0.65rem 0.85rem; border-radius: 12px; font-size: 0.9rem; }
-.lg-err { background: rgba(255, 99, 99, 0.15); color: #ffc9c9; border: 1px solid rgba(255, 99, 99, 0.4); }
-.lg-ok { background: rgba(120, 220, 150, 0.15); color: #c9f5d8; border: 1px solid rgba(120, 220, 150, 0.4); }
+.lg-err { background: #FDECEC; color: #9b1c1c; border: 1px solid #F5C2C2; }
+.lg-ok { background: #E8F6EC; color: #1d6b36; border: 1px solid #BFE5CB; }
 .lg-home { display: inline-block; margin-top: 1.5rem; }
-@media (max-width: 480px) { .lg-card { padding: 1.1rem; border-radius: 18px; } }
 
 .lg-pw { position: relative; }
 .lg-pw .lg-input { padding-right: 3rem; }
 .lg-eye {
-  position: absolute;
-  right: 0.6rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: 0;
-  padding: 0.4rem;
-  display: flex;
-  color: #cdbfff;
-  cursor: pointer;
+  position: absolute; right: 0.6rem; top: 50%; transform: translateY(-50%);
+  background: none; border: 0; padding: 0.4rem; display: flex;
+  color: #8a7aa8; cursor: pointer; transition: color 0.2s ease;
 }
-.lg-eye:hover { color: #fff; }
+.lg-eye:hover { color: #4B326F; }
+
+@media (max-width: 480px) { .lg-card { padding: 1.1rem; border-radius: 18px; } }
+@media (prefers-reduced-motion: reduce) {
+  .lg-social, .lg-primary, .lg-input, .lg-eye, .lg-links button, .lg-home { transition: none; }
+  .lg-social:hover, .lg-primary:hover { transform: none; }
+}
