@@ -18,7 +18,7 @@ function App() {
   const [showGallery, setShowGallery] = useState(false)
   const [bookingService, setBookingService] = useState(null)
   const [bookingDesignId, setBookingDesignId] = useState(null)
-  const { user, signOut } = useAuth()
+  const { user, signOut, recovering } = useAuth()
 
   useEffect(() => {
     const checkHash = () => {
@@ -52,6 +52,16 @@ function App() {
     window.addEventListener('hashchange', checkHash)
     return () => window.removeEventListener('hashchange', checkHash)
   }, [])
+
+  if (recovering) {
+  return (
+    <div>
+      <Header />
+      <Auth />
+      <Footer />
+    </div>
+  )
+}
 
   if (bookingService) {
     return (

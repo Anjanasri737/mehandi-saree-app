@@ -4,11 +4,13 @@ import { supabase } from '../services/supabase'
 const AuthContext = createContext()
 
 const ADMIN_EMAIL = 'anjanasri034@gmail.com'
+const homeUrl = () => window.location.origin + window.location.pathname
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const [isAdmin, setIsAdmin] = useState(false)
+  const [recovering, setRecovering] = useState(false)
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -16,16 +18,15 @@ export function AuthProvider({ children }) {
       setLoading(false)
     })
 
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
       setUser(session?.user ?? null)
+      if (event === 'PASSWORD_RECOVERY') setRecovering(true)
     })
 
     return () => listener.subscription.unsubscribe()
   }, [])
 
-  // Check admin rights whenever the logged-in user changes.
-  // This only decides what to SHOW. The real protection is in Supabase (RLS),
-  // so someone changing this value in the browser still cannot upload or delete.
+  // Only decides what to SHOW. The real protection is Supabase's security rules.
   useEffect(() => {
     let cancelled = false
 
@@ -53,8 +54,26 @@ export function AuthProvider({ children }) {
   const signIn = (email, password) => supabase.auth.signInWithPassword({ email, password })
   const signOut = () => supabase.auth.signOut()
 
+  const signInWithProvider = (provider) =>
+    supabase.auth.signInWithOAuth({ provider, options: { redirectTo: homeUrl() } })
+
+  const resetPassword = (email) =>
+    supabase.auth.resetPasswordForEmail(email, { redirectTo: homeUrl() })
+
+  const updatePassword = async (newPassword) => {
+    const result = await supabase.auth.updateUser({ password: newPassword })
+    if (!result.error) setRecovering(false)
+    return result
+  }
+
   return (
-    <AuthContext.Provider value={{ user, loading, isAdmin, signUp, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{
+        user, loading, isAdmin, recovering,
+        signUp, signIn, signOut,
+        signInWithProvider, resetPassword, updatePassword,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   )
