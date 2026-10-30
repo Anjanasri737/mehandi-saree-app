@@ -1,87 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
 :root {
-  --purple-dark: #4B326F;
-  --purple-mid: #6B4A9B;
-  --lavender: #B8A2E3;
-  --lavender-light: #F3EEFF;
-  --lavender-border: #E5D9F7;
+  --p-dark: #4B326F;
+  --p-mid: #6B4A9B;
+  --p-bright: #8a63c9;
+  --lav: #B8A2E3;
+  --lav-light: #F3EEFF;
+  --lav-border: #E5D9F7;
+  --dots: radial-gradient(circle, rgba(184, 162, 227, 0.28) 1.3px, transparent 1.6px);
 }
 
-body { background: #FFFFFF; color: #3a2a55; }
-h2 { color: var(--purple-dark); }
+html, body, #root { background: #FFFFFF !important; }
+body { color: #3a2a55; font-family: 'Inter', system-ui, sans-serif; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; }
 
-/* Header */
-.header { background: #FFFFFF; border-bottom: 1px solid var(--lavender-border); }
-.logo-text { color: var(--purple-dark); }
-.login-link { border-color: var(--purple-dark); color: var(--purple-dark); }
-.login-link:hover { background: var(--purple-dark); color: #FFFFFF; }
+/* Scroll progress bar (Chrome / Edge) */
+@supports (animation-timeline: scroll()) {
+  body::before {
+    content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 200;
+    background: linear-gradient(90deg, var(--lav), var(--p-dark));
+    transform-origin: left; transform: scaleX(0);
+    animation: progressGrow linear both; animation-timeline: scroll(root);
+  }
+}
+@keyframes progressGrow { to { transform: scaleX(1); } }
 
-/* Logged-in bar (it has an inline colour, so !important is needed) */
-[style*="F5EBDD"] { background: var(--lavender-light) !important; color: var(--purple-dark) !important; }
-[style*="F5EBDD"] button { color: var(--purple-dark) !important; }
+/* ---------- Header ---------- */
+.header {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--lav-border);
+}
+.logo-text { color: var(--p-dark) !important; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.35rem; }
+.login-link { border-color: var(--p-dark) !important; color: var(--p-dark) !important; }
+.login-link:hover { background: var(--p-dark) !important; color: #FFFFFF !important; }
+.hamburger { color: var(--p-dark) !important; }
+.nav-links a:not(.login-link)::after { background: linear-gradient(90deg, var(--lav), var(--p-bright)); }
 
-/* Hero: purple with white text, slowly moving gradient */
+/* Logged-in bar */
+[style*="F5EBDD"] { background: var(--lav-light) !important; color: var(--p-dark) !important; border-bottom: 1px solid var(--lav-border); }
+[style*="F5EBDD"] button { color: var(--p-bright) !important; }
+
+/* ---------- Hero: moving purple gradient, curved bottom ---------- */
 #home {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #4B326F, #6B4A9B, #5a3d86, #4B326F);
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #3d2760, #6B4A9B, #5a3d86, #3d2760) !important;
   background-size: 300% 300%;
   animation: purpleDrift 16s ease-in-out infinite;
+  border-bottom-left-radius: 50% 48px;
+  border-bottom-right-radius: 50% 48px;
+  padding-bottom: 4rem;
 }
-#home::before,
-#home::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(184, 162, 227, 0.35), transparent 70%);
+#home::before, #home::after {
+  content: ''; position: absolute; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(184, 162, 227, 0.4), transparent 70%);
   animation: glowFloat 9s ease-in-out infinite;
 }
-#home::before { width: 420px; height: 420px; top: -140px; left: -120px; }
-#home::after { width: 360px; height: 360px; bottom: -120px; right: -100px; animation-delay: -4s; }
+#home::before { width: 460px; height: 460px; top: -160px; left: -140px; }
+#home::after { width: 380px; height: 380px; bottom: -120px; right: -100px; animation-delay: -4s; }
 #home > * { position: relative; z-index: 1; }
-#home h1, #home h2, #home p { color: #FFFFFF; }
+#home h1, #home h2, #home p { color: #FFFFFF !important; }
+#home h1 { font-weight: 700; text-shadow: 0 2px 18px rgba(0, 0, 0, 0.2); }
 
-/* Buttons */
-.btn:not(.btn-outline):not([class*="whatsapp" i]) { background: var(--purple-dark); color: #FFFFFF; border-color: var(--purple-dark); }
-.btn:not(.btn-outline):not([class*="whatsapp" i]):hover { background: var(--purple-mid); }
-.btn-outline { background: transparent; color: var(--purple-dark); border-color: var(--purple-dark); }
-.btn-outline:hover { background: var(--lavender-light); }
-#home .btn:not(.btn-outline):not([class*="whatsapp" i]) { background: #FFFFFF; color: var(--purple-dark); border-color: #FFFFFF; }
-#home .btn:not(.btn-outline):not([class*="whatsapp" i]):hover { background: var(--lavender-light); }
-#home .btn-outline { color: #FFFFFF; border-color: rgba(255, 255, 255, 0.7); }
-#home .btn-outline:hover { background: rgba(255, 255, 255, 0.15); }
+/* ---------- Buttons ---------- */
+.btn { position: relative; overflow: hidden; }
+.btn:not(.btn-outline):not([class*="whatsapp" i]) {
+  background: linear-gradient(135deg, var(--p-dark), var(--p-bright)) !important;
+  color: #FFFFFF !important; border-color: transparent !important;
+}
+.btn::after {
+  content: ''; position: absolute; top: 0; left: -80%; width: 50%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: skewX(-20deg); pointer-events: none;
+}
+.btn:hover::after { left: 130%; transition: left 0.7s ease; }
+.btn-outline { background: transparent !important; color: var(--p-dark) !important; border-color: var(--p-dark) !important; }
+.btn-outline:hover { background: var(--lav-light) !important; }
+#home .btn:not(.btn-outline):not([class*="whatsapp" i]) { background: #FFFFFF !important; color: var(--p-dark) !important; }
+#home .btn-outline { color: #FFFFFF !important; border-color: rgba(255, 255, 255, 0.75) !important; }
+#home .btn-outline:hover { background: rgba(255, 255, 255, 0.16) !important; }
 
-/* Alternating white / light lavender sections */
-#services { background: #FFFFFF; }
-#mehandi-gallery { background: var(--lavender-light); }
-#saree-gallery { background: #FFFFFF; }
-#reviews { background: var(--lavender-light); }
-#contact { background: #FFFFFF; }
+/* ---------- Sections ---------- */
+section[id]:not(#home) { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+#services { background: #FFFFFF !important; }
+#mehandi-gallery { background: var(--dots), linear-gradient(180deg, var(--lav-light), #FFFFFF) !important; background-size: 22px 22px, auto !important; }
+#saree-gallery { background: #FFFFFF !important; }
+#reviews { background: var(--dots), linear-gradient(180deg, #FFFFFF, var(--lav-light)) !important; background-size: 22px 22px, auto !important; }
+#contact { background: #FFFFFF !important; }
 
-/* Cards */
-[class*="card"] { border-color: var(--lavender-border); box-shadow: 0 4px 14px rgba(75, 50, 111, 0.08); }
+/* Gradient headings with a small lavender line */
+section[id]:not(#home) h2 {
+  background: linear-gradient(90deg, var(--p-dark), var(--p-bright));
+  -webkit-background-clip: text; background-clip: text; color: transparent !important;
+  font-size: clamp(2rem, 5vw, 2.8rem); position: relative; display: inline-block;
+}
+section[id]:not(#home) h2::after {
+  content: ''; display: block; height: 3px; width: 56px; margin: 0.4rem auto 0;
+  background: linear-gradient(90deg, var(--lav), var(--p-bright)); border-radius: 3px;
+}
 
-/* Footer */
-footer { background: linear-gradient(135deg, #3a2559, #4B326F); color: #FFFFFF; }
-footer a { color: var(--lavender); }
+/* ---------- Frosted-glass cards ---------- */
+section [class*="card"], section [class*="review"] {
+  background: rgba(255, 255, 255, 0.78) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--lav-border) !important;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(75, 50, 111, 0.08);
+}
+section [class*="card"]:hover { border-color: var(--lav) !important; box-shadow: 0 14px 32px rgba(75, 50, 111, 0.16); }
 
-/* Scroll reveal (added by the useReveal hook) */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+/* ---------- Footer ---------- */
+footer { background: linear-gradient(135deg, #34204f, var(--p-dark)) !important; color: #FFFFFF !important; border-top-left-radius: 50% 28px; border-top-right-radius: 50% 28px; }
+footer a { color: var(--lav) !important; }
+
+/* ---------- Mehandi Designs Gallery page ---------- */
+.mg-page {
+  background: var(--dots), linear-gradient(180deg, var(--lav-light) 0%, #FFFFFF 70%) !important;
+  background-size: 22px 22px, auto !important;
+}
+.mg-page h1 {
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  background: linear-gradient(90deg, var(--p-dark), var(--p-bright));
+  -webkit-background-clip: text; background-clip: text; color: transparent !important;
+}
+.mg-page .mg-cat-title { color: var(--p-dark); }
+.mg-page .mg-back { color: var(--p-bright); }
+.mg-page .mg-admin {
+  background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px);
+  border: 1px solid var(--lav-border); box-shadow: 0 10px 28px rgba(75, 50, 111, 0.1);
+}
+.mg-page .mg-admin h2 { color: var(--p-dark); }
+.mg-page input, .mg-page select, .mg-page textarea { border-color: var(--lav-border); background: #FFFFFF; color: var(--p-dark); }
+.mg-page input:focus, .mg-page select:focus, .mg-page textarea:focus { outline: none; border-color: var(--lav); box-shadow: 0 0 0 3px rgba(184, 162, 227, 0.35); }
+.mg-page button:not(.mg-tab):not(.mg-ghost):not(.mg-danger):not(.mg-close), .mg-page .mg-btn:not(.mg-ghost) {
+  background: linear-gradient(135deg, var(--p-dark), var(--p-bright)); color: #FFFFFF; border: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mg-page button:not(.mg-tab):not(.mg-ghost):not(.mg-danger):not(.mg-close):hover, .mg-page .mg-btn:not(.mg-ghost):hover {
+  transform: translateY(-1px); box-shadow: 0 6px 16px rgba(75, 50, 111, 0.25);
+}
+.mg-page .mg-ghost { color: var(--p-dark); border: 1px solid var(--p-dark); background: transparent; }
+.mg-page .mg-ghost:hover { background: var(--lav-light); }
+.mg-page .mg-tab { background: #FFFFFF !important; color: var(--p-dark) !important; border: 1px solid var(--lav-border) !important; transition: all 0.25s ease; }
+.mg-page .mg-tab:hover { border-color: var(--lav) !important; transform: translateY(-2px); }
+.mg-page .mg-tab span { background: var(--lav-light); color: var(--p-dark); }
+.mg-page .mg-tab.active { background: linear-gradient(135deg, var(--p-dark), var(--p-bright)) !important; color: #FFFFFF !important; border-color: transparent !important; }
+.mg-page .mg-tab.active span { background: rgba(255, 255, 255, 0.25); color: #FFFFFF; }
+.mg-page .mg-card { border: 1px solid var(--lav-border); box-shadow: 0 6px 18px rgba(75, 50, 111, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.mg-page .mg-card:hover { transform: translateY(-5px); box-shadow: 0 16px 34px rgba(75, 50, 111, 0.2); }
+.mg-page .mg-card h3 { color: var(--p-dark); }
+.mg-page .mg-empty { color: var(--p-mid); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; }
+.mg-page .mg-badge { background: var(--lav-light); color: var(--p-dark); }
+.mg-page .mg-success { background: #EAF7EE; }
+.mg-page .mg-lightbox { background: rgba(43, 26, 70, 0.9); }
+
+/* ---------- Booking pages ---------- */
+[class*="booking-page"] { background: var(--dots), linear-gradient(160deg, var(--lav-light), #FFFFFF) !important; background-size: 22px 22px, auto !important; }
+[class*="booking-card"] { background: rgba(255, 255, 255, 0.9) !important; border: 1px solid var(--lav-border); border-radius: 20px; box-shadow: 0 12px 32px rgba(75, 50, 111, 0.12); }
+[class*="booking-card"] h2 { color: var(--p-dark); }
+[class*="booking-card"] button[type="submit"] { background: linear-gradient(135deg, var(--p-dark), var(--p-bright)) !important; color: #FFFFFF !important; border: 0; }
+[class*="booking-back"] { color: var(--p-bright) !important; }
+
+/* ---------- Animations ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .reveal.reveal-in { opacity: 1; transform: none; }
-
-/* Cards pop in one after another */
-@keyframes popIn { from { opacity: 0; transform: translateY(18px) scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes popIn { from { opacity: 0; transform: translateY(18px) scale(0.96); } to { opacity: 1; transform: none; } }
 .reveal-in [class*="grid"] > * { animation: popIn 0.6s ease both; }
-.reveal-in [class*="grid"] > *:nth-child(2) { animation-delay: 0.08s; }
-.reveal-in [class*="grid"] > *:nth-child(3) { animation-delay: 0.16s; }
-.reveal-in [class*="grid"] > *:nth-child(4) { animation-delay: 0.24s; }
-.reveal-in [class*="grid"] > *:nth-child(n+5) { animation-delay: 0.32s; }
-
+.reveal-in [class*="grid"] > *:nth-child(2) { animation-delay: 0.1s; }
+.reveal-in [class*="grid"] > *:nth-child(3) { animation-delay: 0.2s; }
+.reveal-in [class*="grid"] > *:nth-child(4) { animation-delay: 0.3s; }
+.reveal-in [class*="grid"] > *:nth-child(n+5) { animation-delay: 0.4s; }
 @keyframes purpleDrift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-@keyframes glowFloat { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, 20px); } }
+@keyframes glowFloat { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(34px, 22px); } }
 
 @media (prefers-reduced-motion: reduce) {
   #home, #home::before, #home::after { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .reveal-in [class*="grid"] > * { animation: none; }
+  .btn::after { display: none; }
+  body::before { animation: none; transform: scaleX(0); }
+}
+
+.login-bar { background: var(--lav-light); color: var(--p-dark); border-bottom: 1px solid var(--lav-border); }
+.login-bar button { color: var(--p-bright) !important; }
+
+#reviews [class*="review"]:not([class*="card"]) {
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  border-radius: 0;
 }

@@ -1,0 +1,24 @@
+.ab-page { min-height: 70vh; padding: 1.5rem 1rem 3rem; background: linear-gradient(180deg, #EDE3FA, #FFFFFF 70%); }
+.ab-inner { max-width: 900px; margin: 0 auto; }
+.ab-back { color: #7651A8; text-decoration: none; font-weight: 600; }
+.ab-page h1 { color: #7651A8; margin: 0.75rem 0 0.25rem; }
+.ab-hint { color: #5d4585; margin: 0 0 1rem; }
+.ab-error { background: #FDECEC; color: #9b1c1c; border: 1px solid #F5C2C2; padding: 0.6rem 0.9rem; border-radius: 10px; }
+.ab-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; }
+.ab-page button { background: #7651A8; color: #FFFFFF; border: 0; border-radius: 10px; padding: 0.5rem 1rem; font: inherit; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.ab-page button:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(118, 81, 168, 0.3); }
+.ab-page button:disabled { opacity: 0.6; cursor: wait; }
+.ab-page .ab-tab { background: #FFFFFF; color: #7651A8; border: 1px solid #D3BFEF; }
+.ab-page .ab-tab span { background: #EDE3FA; border-radius: 10px; padding: 0 0.45rem; margin-left: 0.3rem; font-size: 0.8rem; }
+.ab-page .ab-tab.active { background: #7651A8; color: #FFFFFF; border-color: #7651A8; }
+.ab-page .ab-ghost { background: transparent; color: #7651A8; border: 1px solid #7651A8; }
+.ab-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.ab-card { background: #FFFFFF; border: 1px solid #D3BFEF; border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(118, 81, 168, 0.1); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.ab-card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(118, 81, 168, 0.18); }
+.ab-card p { margin: 0.3rem 0; color: #4a3a66; font-size: 0.92rem; }
+.ab-card a { color: #7651A8; }
+.ab-top { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+.ab-badge { background: #EDE3FA; color: #7651A8; border-radius: 10px; padding: 0.1rem 0.6rem; font-size: 0.8rem; text-transform: capitalize; }
+.ab-badge.done { background: #E8F6EC; color: #1d6b36; }
+.ab-actions { margin-top: 0.6rem; }
+.ab-empty { text-align: center; padding: 2rem 1rem; color: #7651A8; }

@@ -1,0 +1,58 @@
+.bf-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;   /* never blocks buttons, forms or galleries */
+  z-index: 40;            /* below the sticky header (50) and the photo viewer (1000) */
+  overflow: hidden;
+}
+.bf {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  will-change: transform;
+  opacity: 0.92;
+}
+.bf-md { width: 60px; }
+.bf-sm { width: 24px; }
+.bf svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* Wing flapping: both wings fold toward the body */
+.bf-wing {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: bfFlap var(--flap, 0.7s) ease-in-out infinite;
+  animation-delay: var(--flap-delay, 0s);
+}
+@keyframes bfFlap {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.3); }
+}
+
+/* Slight tilt and scale changes during flight */
+.bf-sway { animation: bfSway var(--sway, 3.6s) ease-in-out infinite; }
+@keyframes bfSway {
+  0%, 100% { transform: rotate(-7deg) scale(1); }
+  50% { transform: rotate(7deg) scale(1.07); }
+}
+
+/* Very subtle shimmer on selected wings */
+.bf-shimmer {
+  opacity: 0;
+  animation: bfShimmer 4.5s ease-in-out infinite;
+  animation-delay: var(--shimmer-delay, 0s);
+}
+@keyframes bfShimmer {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.75; }
+}
+
+@media (max-width: 600px) {
+  .bf-md { width: 46px; }
+  .bf-sm { width: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bf-wing, .bf-sway, .bf-shimmer { animation: none; }
+  .bf-shimmer { opacity: 0; }
+}

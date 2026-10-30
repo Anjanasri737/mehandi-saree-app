@@ -14,13 +14,15 @@ import SareeBooking from './pages/SareeBooking'
 import MehandiGallery from './pages/MehandiGallery'
 import { useReveal } from './hooks/useReveal'
 import './Theme.css'
+import AdminBookings from './pages/AdminBookings'
 
 function App() {
   const [showAuth, setShowAuth] = useState(false)
   const [showGallery, setShowGallery] = useState(false)
   const [bookingService, setBookingService] = useState(null)
   const [bookingDesignId, setBookingDesignId] = useState(null)
-  const { user, signOut, recovering } = useAuth()
+  const { user, signOut, recovering, isAdmin } = useAuth()
+  const [showAdminBookings, setShowAdminBookings] = useState(false)
 
   // 1. Read the address (#login, #booking, #mehandi-designs ...)
   useEffect(() => {
@@ -28,6 +30,7 @@ function App() {
       const hash = window.location.hash
       setShowAuth(hash === '#login')
       setShowGallery(hash === '#mehandi-designs')
+      setShowAdminBookings(hash === '#admin-bookings')
       if (hash === '#booking' || hash.startsWith('#booking-mehandi')) {
         setBookingService('mehandi')
         setBookingDesignId(hash.split('/')[1] || null)
@@ -68,6 +71,8 @@ function App() {
     return () => clearTimeout(timer)
   }, [showAuth, showGallery, bookingService])
 
+   useReveal(`${showAuth}-${showGallery}-${bookingService}`)
+
   // Everything below here is NOT a hook, so the returns are fine.
   if (recovering) {
     return (
@@ -78,7 +83,7 @@ function App() {
       </div>
     )
   }
-  useReveal(`${showAuth}-${showGallery}-${bookingService}`)
+  
   if (bookingService) {
     return (
       <div>
@@ -106,7 +111,15 @@ function App() {
       </div>
     )
   }
-
+     if (showAdminBookings) {
+     return (
+       <div>
+         <Header />
+         <AdminBookings />
+         <Footer />
+       </div>
+     )
+   }
   if (showGallery) {
     return (
       <div>
@@ -121,8 +134,14 @@ function App() {
     <div>
       <Header />
       {user && (
-        <div style={{ textAlign: 'center', padding: '0.75rem', background: '#F5EBDD' }}>
+        <div className="login-bar" style={{ textAlign: 'center', padding: '0.75rem' }}>
           Logged in as {user.email} —{' '}
+             {isAdmin && (
+        <>
+          {' '}|{' '}
+          <a href="#admin-bookings" style={{ color: '#7651A8' }}>Manage bookings</a>{' '}
+        </>
+        )}
           <button onClick={signOut} style={{ textDecoration: 'underline', background: 'none', color: '#7A9B57' }}>
             Logout
           </button>
