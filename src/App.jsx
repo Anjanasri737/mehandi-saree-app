@@ -15,6 +15,7 @@ import MehandiGallery from './pages/MehandiGallery'
 import { useReveal } from './hooks/useReveal'
 import './Theme.css'
 import AdminBookings from './pages/AdminBookings'
+import AdminReviews from './pages/AdminReviews'
 
 function App() {
   const [showAuth, setShowAuth] = useState(false)
@@ -23,6 +24,7 @@ function App() {
   const [bookingDesignId, setBookingDesignId] = useState(null)
   const { user, signOut, recovering, isAdmin } = useAuth()
   const [showAdminBookings, setShowAdminBookings] = useState(false)
+  const [showAdminReviews, setShowAdminReviews] = useState(false)
 
   // 1. Read the address (#login, #booking, #mehandi-designs ...)
   useEffect(() => {
@@ -31,6 +33,7 @@ function App() {
       setShowAuth(hash === '#login')
       setShowGallery(hash === '#mehandi-designs')
       setShowAdminBookings(hash === '#admin-bookings')
+      setShowAdminReviews(hash === '#admin-reviews')
       if (hash === '#booking' || hash.startsWith('#booking-mehandi')) {
         setBookingService('mehandi')
         setBookingDesignId(hash.split('/')[1] || null)
@@ -120,6 +123,16 @@ function App() {
        </div>
      )
    }
+     if (showAdminReviews) {
+     return (
+       <div>
+         <Header />
+         <AdminReviews />
+         <Footer />
+       </div>
+     )
+   }
+
   if (showGallery) {
     return (
       <div>
@@ -140,7 +153,10 @@ function App() {
         <>
           {' '}|{' '}
           <a href="#admin-bookings" style={{ color: '#7651A8' }}>Manage bookings</a>{' '}
+          {' '}|{' '}
+          <a href="#admin-reviews" style={{ color: '#7651A8' }}>Manage reviews</a>
         </>
+        
         )}
           <button onClick={signOut} style={{ textDecoration: 'underline', background: 'none', color: '#7A9B57' }}>
             Logout

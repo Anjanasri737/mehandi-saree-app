@@ -55,3 +55,10 @@
   .rv-overlay, .rv-modal { animation: none; }
   .rv-item, .rv-write, .rv-picker button { transition: none; }
 }
+
+.rv-modal { box-sizing: border-box; grid-template-columns: minmax(0, 1fr); overflow-x: hidden; }
+.rv-modal *, .rv-modal *::before, .rv-modal *::after { box-sizing: border-box; min-width: 0; max-width: 100%; }
+.rv-modal input, .rv-modal select, .rv-modal textarea { width: 100%; }
+.rv-picker { flex-wrap: wrap; }
+.rv-picker-label { flex-basis: 100%; margin: 0.2rem 0 0; }
+@media (max-width: 480px) { .rv-modal { padding: 1.1rem; } }
