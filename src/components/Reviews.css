@@ -1,68 +1,57 @@
-.reviews {
-  padding: 3rem 1.25rem;
-  background-color: #F5EBDD;
-}
+.rv-section { padding: 3.5rem 1rem; }
+.rv-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
 
-.reviews-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
+.rv-summary { display: inline-flex; align-items: center; gap: 1rem; background: #FFFFFF; border: 1px solid #D3BFEF; border-radius: 18px; padding: 0.8rem 1.4rem; margin: 1rem 0; box-shadow: 0 8px 22px rgba(118, 81, 168, 0.12); text-align: left; }
+.rv-avg { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; font-weight: 700; color: #7651A8; line-height: 1; }
+.rv-summary p { margin: 0.15rem 0 0; color: #5d4585; font-size: 0.9rem; }
 
-.reviews h2 {
-  font-size: 1.8rem;
-  color: #3E2723;
-  margin-bottom: 1rem;
-}
+.rv-stars span { color: #D3BFEF; font-size: 1.1rem; }
+.rv-stars span.on { color: #7651A8; }
 
-.reviews-summary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-}
+.rv-write { display: block; margin: 0.8rem auto 0; background: linear-gradient(135deg, #7651A8, #9B78CF); color: #FFFFFF; border: 0; border-radius: 999px; padding: 0.8rem 1.8rem; font: inherit; font-weight: 600; cursor: pointer; box-shadow: 0 8px 20px rgba(118, 81, 168, 0.3); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.rv-write:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(118, 81, 168, 0.4); }
+.rv-hint { color: #7651A8; font-size: 0.85rem; margin: 0.5rem 0 0; }
+.rv-notice { background: #EDE3FA; color: #4B326F; border: 1px solid #D3BFEF; border-radius: 12px; padding: 0.7rem 1rem; max-width: 520px; margin: 1rem auto 0; }
+.rv-empty { color: #7651A8; margin: 2rem 0; font-size: 1.05rem; }
+.rv-error { background: #FDECEC; color: #9b1c1c; border: 1px solid #F5C2C2; border-radius: 10px; padding: 0.6rem 0.9rem; }
 
-.reviews-average {
-  font-weight: 700;
-  color: #3E2723;
-}
+.rv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 2rem; text-align: left; }
+.rv-item { background: #FFFFFF; border: 1px solid #D3BFEF; border-radius: 20px; padding: 1.2rem; box-shadow: 0 8px 22px rgba(118, 81, 168, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; gap: 0.6rem; }
+.rv-item:hover { transform: translateY(-5px); box-shadow: 0 16px 34px rgba(118, 81, 168, 0.2); }
+.rv-item-top { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.rv-verified { background: #EDE3FA; color: #7651A8; border-radius: 999px; padding: 0.15rem 0.6rem; font-size: 0.75rem; font-weight: 600; }
+.rv-text { margin: 0; color: #3a2a55; line-height: 1.55; }
+.rv-photo { width: 100%; max-height: 220px; object-fit: cover; border-radius: 14px; border: 1px solid #E5D9F7; }
+.rv-who { margin: 0; display: grid; gap: 0.1rem; color: #4B326F; }
+.rv-who span { color: #8a7aa8; font-size: 0.85rem; }
+.rv-reply { background: #EDE3FA; border-radius: 12px; padding: 0.7rem 0.9rem; font-size: 0.9rem; color: #4B326F; }
+.rv-reply p { margin: 0.2rem 0 0; }
 
-.reviews-total {
-  color: #5D4037;
-  font-size: 0.9rem;
-}
+/* Form window */
+.rv-overlay { position: fixed; inset: 0; background: rgba(43, 26, 70, 0.6); display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 1000; animation: rvFade 0.25s ease; }
+@keyframes rvFade { from { opacity: 0; } to { opacity: 1; } }
+.rv-modal { position: relative; background: #FFFFFF; border-radius: 22px; width: 100%; max-width: 480px; max-height: 92vh; overflow-y: auto; padding: 1.5rem; display: grid; gap: 0.9rem; box-shadow: 0 24px 60px rgba(43, 26, 70, 0.4); animation: rvPop 0.3s ease; color: #3a2a55; }
+@keyframes rvPop { from { opacity: 0; transform: translateY(16px) scale(0.97); } to { opacity: 1; transform: none; } }
+.rv-modal h3 { margin: 0; color: #7651A8; font-size: 1.7rem; }
+.rv-modal-sub { margin: -0.4rem 0 0; color: #6b5a8a; font-size: 0.92rem; }
+.rv-modal label, .rv-field { display: grid; gap: 0.3rem; font-weight: 600; font-size: 0.92rem; color: #4B326F; }
+.rv-modal input, .rv-modal select, .rv-modal textarea { border: 1px solid #D3BFEF; border-radius: 12px; padding: 0.65rem 0.8rem; font: inherit; font-weight: 400; color: #3a2a55; background: #FFFFFF; }
+.rv-modal input:focus, .rv-modal select:focus, .rv-modal textarea:focus { outline: none; border-color: #7651A8; box-shadow: 0 0 0 3px rgba(118, 81, 168, 0.2); }
+.rv-modal input[readonly] { background: #EDE3FA; }
+.rv-modal small { color: #8a7aa8; font-weight: 400; }
+.rv-x { position: absolute; top: 0.8rem; right: 0.8rem; background: #EDE3FA; color: #7651A8; border: 0; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; }
+.rv-picker { display: flex; align-items: center; gap: 0.15rem; }
+.rv-picker button { background: none; border: 0; font-size: 2rem; line-height: 1; color: #D3BFEF; cursor: pointer; padding: 0 0.1rem; transition: transform 0.15s ease, color 0.15s ease; }
+.rv-picker button.on { color: #7651A8; }
+.rv-picker button:hover { transform: scale(1.18); }
+.rv-picker-label { margin-left: 0.6rem; color: #7651A8; font-weight: 500; font-size: 0.9rem; }
+.rv-preview { width: 100%; max-height: 200px; object-fit: cover; border-radius: 14px; border: 1px solid #D3BFEF; }
+.rv-submit { background: linear-gradient(135deg, #7651A8, #9B78CF); color: #FFFFFF; border: 0; border-radius: 999px; padding: 0.85rem 1rem; font: inherit; font-weight: 600; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.rv-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(118, 81, 168, 0.35); }
+.rv-submit:disabled { opacity: 0.6; cursor: wait; }
+.rv-fine { margin: 0; text-align: center; color: #8a7aa8; font-size: 0.82rem; }
 
-.review-cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-  text-align: left;
-}
-
-.review-card {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  border: 1px solid #E8D9C5;
-}
-
-.review-text {
-  margin: 0.75rem 0;
-  color: #5D4037;
-  font-style: italic;
-  line-height: 1.5;
-}
-
-.review-name {
-  font-weight: 600;
-  color: #3E2723;
-  font-size: 0.9rem;
-}
-
-@media (min-width: 768px) {
-  .review-cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
+@media (prefers-reduced-motion: reduce) {
+  .rv-overlay, .rv-modal { animation: none; }
+  .rv-item, .rv-write, .rv-picker button { transition: none; }
 }
