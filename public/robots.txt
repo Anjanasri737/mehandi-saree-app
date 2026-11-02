@@ -1,0 +1,4 @@
+   User-agent: *
+   Allow: /
+
+   Sitemap: https://mehandi-saree-app.vercel.app/sitemap.xml
