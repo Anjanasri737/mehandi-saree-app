@@ -224,7 +224,7 @@ function MehandiGallery() {
             <div key={d.id} className="mg-card">
               <img
                 src={d.image_url}
-                alt={d.title}
+                alt={`${d.title} - ${activeName}`}
                 loading="lazy"
                 onClick={() => setLightbox(d)}
                 onError={() => !showAdmin && setBroken((b) => ({ ...b, [d.id]: true }))}
@@ -278,7 +278,7 @@ function MehandiGallery() {
       {lightbox && (
         <div className="mg-lightbox" onClick={() => setLightbox(null)}>
           <button className="mg-close" aria-label="Close">✕</button>
-          <img src={lightbox.image_url} alt={lightbox.title} onClick={(e) => e.stopPropagation()} />
+          <img src={lightbox.image_url} alt={`${lightbox.title} - ${activeName}`} onClick={(e) => e.stopPropagation()} /> 
           <p>{lightbox.title}</p>
         </div>
       )}
