@@ -5,9 +5,11 @@
 export const businessInfo = {
   name: "Anjana Mehandi & Saree Pleats",
   tagline: "Beautiful Mehandi & Perfect Saree Pleats for Your Special Moments",
-  phone: "9999999999",        // placeholder — replace with your real number
+  phone: "9342495806",        // placeholder — replace with your real number
   whatsapp: "919342495806",   // placeholder — country code + number, no + or spaces
-  email: "info@example.com",  // placeholder
-  address: "Your Business Address, City, State",
+  email: "srianjana61@gmail.com",  // placeholder
+  address: "SVR PLATINUM, 103 Ground floor, 2nd Cross Street, Ananth Nagar Phase 2, Electronic City Phase 2, Bangalore 560100",
   instagram: "https://www.instagram.com/anjana_sri2026",
+
+
 };
