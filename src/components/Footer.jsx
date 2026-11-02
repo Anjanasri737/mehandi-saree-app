@@ -8,6 +8,7 @@ function Footer() {
     <footer className="footer">
       <p>{businessInfo.name}</p>
       <p className="footer-copy">© {year} All rights reserved.</p>
+      <a href="/privacy.html" style={{ color: 'inherit', textDecoration: 'underline' }}>Privacy Policy</a>
     </footer>
   )
 }
