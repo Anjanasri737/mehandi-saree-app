@@ -142,3 +142,43 @@
   line-height: 1.4;
   color: #6D4C41;
 }
+
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-card-info {
+  flex-grow: 1;
+}
+
+.gallery-card-book {
+  padding: 0.9rem 0.85rem 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.gallery-card-book .btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+}
+
+.gallery-card {
+  position: relative;
+}
+
+.gallery-card-msg {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  right: 0.6rem;
+  z-index: 3;
+  margin: 0;
+  padding: 0.4rem 0.6rem;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

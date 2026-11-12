@@ -6,12 +6,14 @@ import {
   deleteGalleryPhoto,
 } from '../services/galleryPhotos'
 import './GalleryCard.css'
+import ServicePrice from './ServicePrice'
 
 function GalleryCard({
   image,
   title,
   category,
   description,
+  serviceName,
   gallery,
   cardId,
   photo,
@@ -25,6 +27,13 @@ function GalleryCard({
   const [busy, setBusy] = useState(false)
   const [message, setMessage] = useState(null)
   const [lightboxOpen, setLightboxOpen] = useState(false)
+
+    // hide the success/error message after a few seconds
+  useEffect(() => {
+    if (!message) return
+    const timer = setTimeout(() => setMessage(null), 4000)
+    return () => clearTimeout(timer)
+  }, [message])
 
   // free the temporary preview when it is no longer needed
   useEffect(() => {
@@ -124,6 +133,15 @@ function GalleryCard({
         <span className="gallery-card-category">{category}</span>
         <h4>{title}</h4>
         {description && <p className="gallery-card-desc">{description}</p>}
+        <ServicePrice serviceName={serviceName} />
+      </div>
+       <div className="gallery-card-book">
+        <a
+          href={gallery === 'saree' ? '#booking-saree' : '#booking-mehandi'}
+          className="btn btn-primary"
+        >
+          Book Now
+        </a>
       </div>
 
       {isAdmin && (

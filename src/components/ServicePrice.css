@@ -1,0 +1,15 @@
+.sp { margin-top: 0.5rem; text-align: center; }
+.sp-badge {
+  display: inline-block;
+  background: #7651A8;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.3rem;
+}
+.sp-line { display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; }
+.sp-final { font-size: 1.3rem; font-weight: 700; color: #7651A8; }
+.sp-old { color: #888; text-decoration: line-through; font-size: 0.95rem; }
+.sp-unit { color: #666; font-size: 0.75rem; }

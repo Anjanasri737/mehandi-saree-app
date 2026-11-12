@@ -1,0 +1,61 @@
+.msp-page { max-width: 900px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+.msp-center { text-align: center; padding-top: 3rem; }
+.msp-page h2 { color: #7651A8; margin: 1rem 0 0.25rem; }
+.msp-sub { color: #555; margin-bottom: 1rem; }
+
+.msp-btn {
+  display: inline-block; padding: 0.5rem 1.1rem; border-radius: 999px;
+  border: 1.5px solid #7651A8; background: #fff; color: #7651A8;
+  font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.9rem;
+}
+.msp-btn:hover { background: #EDE3FA; }
+.msp-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.msp-btn-primary { background: #7651A8; color: #fff; }
+.msp-btn-primary:hover { background: #63429a; }
+.msp-btn-danger { border-color: #b3261e; color: #b3261e; }
+.msp-btn-danger:hover { background: #fdecea; }
+.msp-back { margin-bottom: 0.5rem; background: #EDE3FA; }
+
+.msp-tabs { display: flex; gap: 0.5rem; margin: 1rem 0; }
+.msp-tabs button {
+  flex: 1; padding: 0.7rem; border-radius: 12px; border: 1.5px solid #D3BFEF;
+  background: #fff; color: #7651A8; font-weight: 600; cursor: pointer;
+}
+.msp-tabs button.active { background: #7651A8; color: #fff; border-color: #7651A8; }
+
+.msp-card {
+  background: #fff; border: 1.5px solid #D3BFEF; border-radius: 14px;
+  padding: 1rem 1.2rem; margin-top: 1rem;
+}
+.msp-card h3 { margin: 0 0 0.3rem; color: #3b2a57; font-size: 1.1rem; }
+.msp-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.msp-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: flex-start; margin-top: 0.5rem; }
+
+.msp-price { font-size: 1.25rem; font-weight: 700; color: #7651A8; margin: 0.2rem 0; }
+.msp-price small { font-size: 0.8rem; font-weight: 500; color: #666; }
+.msp-offer { background: #EDE3FA; border-radius: 8px; padding: 0.35rem 0.7rem; display: inline-block; margin: 0.2rem 0; }
+.msp-desc { color: #555; margin: 0.4rem 0 0; font-size: 0.92rem; }
+
+.msp-badge { font-size: 0.7rem; padding: 0.15rem 0.6rem; border-radius: 999px; vertical-align: middle; }
+.msp-badge.live { background: #e3f4e1; color: #1e6b2a; }
+.msp-badge.off { background: #eee; color: #666; }
+
+.msp-editor { margin-top: 1rem; border-top: 1px dashed #D3BFEF; padding-top: 1rem; }
+.msp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.msp-editor label { display: flex; flex-direction: column; font-size: 0.85rem; font-weight: 600; color: #3b2a57; gap: 0.25rem; }
+.msp-full { margin-top: 0.8rem; }
+.msp-editor input, .msp-editor select, .msp-editor textarea {
+  padding: 0.55rem 0.7rem; border: 1.5px solid #D3BFEF; border-radius: 8px;
+  font: inherit; font-weight: 400; background: #fff;
+}
+.msp-editor input:focus, .msp-editor select:focus, .msp-editor textarea:focus {
+  outline: none; border-color: #7651A8;
+}
+
+.msp-ok { background: #e3f4e1; color: #1e6b2a; padding: 0.6rem 0.9rem; border-radius: 8px; }
+.msp-error { background: #fdecea; color: #b3261e; padding: 0.6rem 0.9rem; border-radius: 8px; }
+
+@media (max-width: 600px) {
+  .msp-grid { grid-template-columns: 1fr; }
+  .msp-row { flex-direction: column; }
+}

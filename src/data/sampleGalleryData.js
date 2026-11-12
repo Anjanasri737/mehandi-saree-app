@@ -4,12 +4,14 @@
 // won't need to change — only where the data comes from.
 
 export const mehandiDesigns = [
-  { id: 1, title: 'Bridal Mehandi Design', category: 'Bridal', image: 'https://placehold.co/400x400/7A9B57/fff?text=Bridal+Mehandi' },
-  { id: 2, title: 'Arabic Style Mehandi', category: 'Arabic', image: 'https://placehold.co/400x400/B08D57/fff?text=Arabic+Mehandi' },
-  { id: 3, title: 'Simple Everyday Mehandi', category: 'Simple', image: 'https://placehold.co/400x400/7A9B57/fff?text=Simple+Mehandi' },
-  { id: 4, title: 'Traditional Festival Mehandi', category: 'Festival', image: 'https://placehold.co/400x400/B08D57/fff?text=Festival+Mehandi' },
-  { id: 5, title: 'Simple Mehandi Design', category: 'Traditional', image: 'https://placehold.co/400x400/7A9B57/fff?text=Traditional' },
-  { id: 6, title: 'Baby shower mehndi design', category: 'Custom', image: 'https://placehold.co/400x400/B08D57/fff?text=Custom+Mehandi' },
+  { id: 1, title: 'Bridal Mehandi Design', category: 'Bridal', serviceName: 'Bridal Mehandi', image: 'https://placehold.co/400x400/7A9B57/fff?text=Bridal+Mehandi' },
+  { id: 2, title: 'Arabic Style Mehandi', category: 'Arabic', serviceName: 'Arabic Mehandi', image: 'https://placehold.co/400x400/B08D57/fff?text=Arabic+Mehandi' },
+  { id: 4, title: 'Traditional Festival Mehandi', category: 'Festival', serviceName: 'Festival Mehandi', image: 'https://placehold.co/400x400/B08D57/fff?text=Festival+Mehandi' },
+  { id: 6, title: 'Baby shower mehndi design', category: 'Custom', serviceName: 'Baby Shower Mehandi', image: 'https://placehold.co/400x400/B08D57/fff?text=Custom+Mehandi' },
+  { id: 7, title: 'Engagement Mehandi Design', category: 'Engagement', serviceName: 'Engagement Mehandi', image: 'https://placehold.co/400x400/7A9B57/fff?text=Engagement+Mehandi' },
+  { id: 8, title: 'Half-Hand Mehandi Design', category: 'Half Hand', serviceName: 'Half-Hand Mehandi', image: 'https://placehold.co/400x400/B08D57/fff?text=Half-Hand+Mehandi' },
+  { id: 9, title: 'Full-Hand Mehandi Design', category: 'Full Hand', serviceName: 'Full-Hand Mehandi', image: 'https://placehold.co/400x400/7A9B57/fff?text=Full-Hand+Mehandi' },
+  { id: 10, title: 'Feet Mehandi Design', category: 'Feet', serviceName: 'Feet Mehandi', image: 'https://placehold.co/400x400/B08D57/fff?text=Feet+Mehandi' },
 ]
 
 export const sareeDesigns = [

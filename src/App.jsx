@@ -16,6 +16,8 @@ import { useReveal } from './hooks/useReveal'
 import './Theme.css'
 import AdminBookings from './pages/AdminBookings'
 import AdminReviews from './pages/AdminReviews'
+import ManageServicePrices from './pages/ManageServicePrices'
+import ManageOffers from './pages/ManageOffers'
 
 function App() {
   const [showAuth, setShowAuth] = useState(false)
@@ -25,6 +27,8 @@ function App() {
   const { user, signOut, recovering, isAdmin } = useAuth()
   const [showAdminBookings, setShowAdminBookings] = useState(false)
   const [showAdminReviews, setShowAdminReviews] = useState(false)
+  const [showAdminPrices, setShowAdminPrices] = useState(false)
+  const [showAdminOffers, setShowAdminOffers] = useState(false)
 
   // 1. Read the address (#login, #booking, #mehandi-designs ...)
   useEffect(() => {
@@ -34,6 +38,7 @@ function App() {
       setShowGallery(hash === '#mehandi-designs')
       setShowAdminBookings(hash === '#admin-bookings')
       setShowAdminReviews(hash === '#admin-reviews')
+      setShowAdminPrices(hash === '#admin-prices')
       if (hash === '#booking' || hash.startsWith('#booking-mehandi')) {
         setBookingService('mehandi')
         setBookingDesignId(hash.split('/')[1] || null)
@@ -133,6 +138,26 @@ function App() {
      )
    }
 
+     if (showAdminPrices) {
+    return (
+      <div>
+        <Header />
+        <ManageServicePrices />
+        <Footer />
+      </div>
+    )
+  }
+
+    if (showAdminOffers) {
+    return (
+      <div>
+        <Header />
+        <ManageOffers />
+        <Footer />
+      </div>
+    )
+  }
+
   if (showGallery) {
     return (
       <div>
@@ -155,6 +180,12 @@ function App() {
           <a href="#admin-bookings" style={{ color: '#7651A8' }}>Manage bookings</a>{' '}
           {' '}|{' '}
           <a href="#admin-reviews" style={{ color: '#7651A8' }}>Manage reviews</a>
+          {' '}|{' '}
+          <a href="#admin-prices" style={{ color: '#7651A8' }}>Manage service prices</a>
+          {' '}|{' '}
+          <a href="#admin-offers" style={{ color: '#7651A8' }}>Manage offers &amp; discounts</a>
+
+
         </>
         
         )}
@@ -164,7 +195,7 @@ function App() {
         </div>
       )}
       <Hero />
-      <Services />
+      {isAdmin && <Services />}
       <GalleryPreview
         id="mehandi-gallery"
         title="Mehandi Gallery"

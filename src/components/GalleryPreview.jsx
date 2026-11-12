@@ -44,6 +44,7 @@ function GalleryPreview({ id, title, items, viewAllHref, viewAllLabel }) {
               title={item.title}
               category={item.category}
               description={item.description}
+              serviceName={item.serviceName}
               gallery={gallery}
               cardId={item.id}
               photo={photos[String(item.id)]}

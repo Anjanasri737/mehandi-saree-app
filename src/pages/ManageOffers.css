@@ -1,0 +1,26 @@
+.msp-editor label.mo-check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  margin: 0.25rem 0;
+}
+.msp-editor label.mo-check input { width: auto; padding: 0; }
+.mo-top { margin-top: 0.9rem; }
+
+.mo-picker {
+  border: 1.5px solid #D3BFEF;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin-top: 0.5rem;
+  background: #faf6ff;
+}
+.mo-group + .mo-group { margin-top: 0.9rem; }
+.mo-group-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem; color: #3b2a57; }
+.mo-link { background: none; border: none; color: #7651A8; text-decoration: underline; cursor: pointer; font-size: 0.8rem; }
+.mo-hidden { color: #888; font-size: 0.8rem; }
+
+.msp-badge.mo-live { background: #e3f4e1; color: #1e6b2a; }
+.msp-badge.mo-scheduled { background: #fff3d6; color: #8a5a00; }
+.msp-badge.mo-expired { background: #eee; color: #666; }
+.msp-badge.mo-off { background: #eee; color: #666; }
