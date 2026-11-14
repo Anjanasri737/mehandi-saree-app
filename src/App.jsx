@@ -18,6 +18,7 @@ import AdminBookings from './pages/AdminBookings'
 import AdminReviews from './pages/AdminReviews'
 import ManageServicePrices from './pages/ManageServicePrices'
 import ManageOffers from './pages/ManageOffers'
+import SareePricing from './components/SareePricing'
 
 function App() {
   const [showAuth, setShowAuth] = useState(false)
@@ -209,6 +210,7 @@ function App() {
         title="Saree Pre-Pleating Gallery"
         items={sareeDesigns}
       />
+       <SareePricing />
       <Reviews />
       <Contact />
       <Footer />

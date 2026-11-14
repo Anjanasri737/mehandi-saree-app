@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react'
 import { supabase } from '../services/supabase'
 import { useAuth } from '../context/AuthContext'
 import './ManageServicePrices.css'
+import SareeTypesManager from '../components/SareeTypesManager'
 
 const UNIT_LABELS = {
   per_hand: 'per hand',
@@ -322,6 +323,7 @@ export default function ManageServicePrices() {
       })}
 
       {!loading && visible.length === 0 && <p>No services in this category yet.</p>}
+      {tab === 'saree' && <SareeTypesManager />}
     </div>
   )
 }
