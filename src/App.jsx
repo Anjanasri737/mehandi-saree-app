@@ -39,6 +39,7 @@ function App() {
       setShowAdminBookings(hash === '#admin-bookings')
       setShowAdminReviews(hash === '#admin-reviews')
       setShowAdminPrices(hash === '#admin-prices')
+      setShowAdminOffers(hash === '#admin-offers')
       if (hash === '#booking' || hash.startsWith('#booking-mehandi')) {
         setBookingService('mehandi')
         setBookingDesignId(hash.split('/')[1] || null)
